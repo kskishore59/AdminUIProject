@@ -1,0 +1,44 @@
+.non-active-button{
+    color: blue;
+    border: 0px none;
+    border-radius: 40px;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 20px;
+     font-weight: bold;
+    font-family: Roboto;
+    font-size: 18px;
+   
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.non-active-button a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    width: 80%;
+    height: 40px;
+    color: blue;
+     cursor: pointer;
+}
+
+.non-active-button a:hover{
+    color: white;
+    background-color: blueviolet;
+}
+
+
+.active-btn{
+    color: blue;
+    font-weight: bold;
+    font-family: Roboto;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: transparent;
+    height: 40px;
+}
+

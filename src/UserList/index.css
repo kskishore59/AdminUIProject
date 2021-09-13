@@ -1,0 +1,38 @@
+.list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.para {
+  color: black;
+  font-family: 'Roboto';
+  text-align: center;
+  width: 250px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.input-element {
+  padding-top: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.edit-button {
+  border: 0px none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.delete-icon {
+  color: red;
+}
+
+.hr-line{
+    color: black;
+    width: 100%;
+}
