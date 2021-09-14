@@ -9,7 +9,7 @@ import Paginate from '../PaginateObj'
 import "./index.css";
 
 class AdminUi extends Component {
-  state = { usersList: [], searchInput: "", limit:10, offset: 0, setPageNumber: 0 };
+  state = { usersList: [], searchInput: "", limit:10, offset: 0, setPageNumber: 0 , selectedList: []};
   
   
 
@@ -54,7 +54,29 @@ class AdminUi extends Component {
   }
 
   onSelectAll = () => {
+   this.setState((prevState) => ({
+     usersList: prevState.usersList.map((each) => ({...each, isChecked: !each.isChecked}))
+   }), )
       
+  }
+
+  onCheckboxSelect = (id) => {
+    this.setState((prevState) => ({
+      usersList: prevState.usersList.map(eachItem => {
+        if (id === eachItem.id  ){
+          return {...eachItem, isChecked: !eachItem.isChecked}
+        }
+         return eachItem
+      })
+    }))
+  }
+
+  OnDeleteSelected = () => {
+    const{usersList} = this.state
+    const deletedList = usersList.filter((eachItem) => eachItem.isChecked === false)
+
+    this.setState({usersList: deletedList})
+
   }
 
   
@@ -98,8 +120,14 @@ class AdminUi extends Component {
             key={each.id}
             details={each}
             onDeleteUser={this.onDeleteUser}
+            onCheckboxSelect={this.onCheckboxSelect}
           />
         ))}
+        <div className="delete-btn-container">
+          <button type="button" onClick={this.OnDeleteSelected} className="delete-btn">
+            Delete Selected
+          </button>
+        </div>
 
          <Paginate pageCount={pageCount} onChangePage={this.onChangePage}/>
        

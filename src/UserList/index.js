@@ -4,10 +4,12 @@ import { AiFillDelete } from "react-icons/ai";
 import "./index.css";
 
 const UserDetails = (props) => {
-  const { details, onDeleteUser } = props;
+  const { details, onDeleteUser,onCheckboxSelect } = props;
   const { id, name, email, role, isChecked } = details;
 
-  const onSelectCheckbox = () => {};
+  const onSelectCheckbox = () => {
+    onCheckboxSelect(id)
+  };
 
   const onDeleteItem = () => {
     onDeleteUser(id);
@@ -24,6 +26,7 @@ const UserDetails = (props) => {
           type="checkbox"
           className="input-element"
           onChange={onSelectCheckbox}
+          checked={isChecked}
         />
         <p className="para">{name}</p>
         <p className="para">{email}</p>
